@@ -1,0 +1,25 @@
+import pygame
+from constants import *
+
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+    while True:
+        # to check wheather the player has quit(if did then it will make window close button work)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+        screen.fill(color="black") # set the screen color to black
+        pygame.display.flip() # refreshes the screen
+
+
+    print("Sartting asteroids!")
+    print(f"Screen width: {SCREEN_WIDTH}")
+    print(f"Screen Height: {SCREEN_HEIGHT}")
+
+
+
+
+
+if __name__== "__main__":
+    main()

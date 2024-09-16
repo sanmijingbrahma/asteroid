@@ -4,6 +4,9 @@ from constants import *
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+    # to make the game render in 60FPS
+    clock = pygame.time.Clock()
+    dt = 0
     while True:
         # to check wheather the player has quit(if did then it will make window close button work)
         for event in pygame.event.get():
@@ -11,6 +14,11 @@ def main():
                 return
         screen.fill(color="black") # set the screen color to black
         pygame.display.flip() # refreshes the screen
+        # 60FPS- so it will use lesser resourses
+        # it will pause the loop until 1/60th of a seconde
+        deltaTime = clock.tick(60)
+        dt = deltaTime/1000
+
 
 
     print("Sartting asteroids!")

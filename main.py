@@ -18,8 +18,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        player.update(dt)
+        # renders the game
         screen.fill(color="black") # set the screen color to black
-        player.draw(screen)
+        player.draw(screen) 
+        
         pygame.display.flip() # refreshes the screen
         # 60FPS- so it will use lesser resourses
         # it will pause the loop until 1/60th of a seconde

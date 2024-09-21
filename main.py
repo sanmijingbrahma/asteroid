@@ -13,15 +13,22 @@ def main():
     x= SCREEN_WIDTH/2
     y= SCREEN_HEIGHT/2
     player = Player(x,y)
+
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable,drawable)
     while True:
         # to check wheather the player has quit(if did then it will make window close button work)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        player.update(dt)
+        for obj in updatable:
+            obj.update(dt)
         # renders the game
         screen.fill(color="black") # set the screen color to black
-        player.draw(screen) 
+        for obj in drawable:
+            obj.draw(dt) 
         
         pygame.display.flip() # refreshes the screen
         # 60FPS- so it will use lesser resourses
